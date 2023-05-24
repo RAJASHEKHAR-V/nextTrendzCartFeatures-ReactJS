@@ -56,8 +56,10 @@ class App extends Component {
 
   addCartItem = product => {
     //   TODO: Update the code here to implement addCartItem
+
     const {cartList} = this.state
     const isSameProduct = cartList.find(eachItem => eachItem.id === product.id)
+
     if (isSameProduct !== undefined) {
       const updateQuantityListForSameProduct = cartList.map(eachItem => {
         if (eachItem.id === product.id) {
@@ -65,6 +67,7 @@ class App extends Component {
         }
         return eachItem
       })
+
       this.setState({cartList: updateQuantityListForSameProduct})
     } else {
       this.setState(prevState => ({cartList: [...prevState.cartList, product]}))
